@@ -14,6 +14,7 @@ padding-bottom: 200px;
 }
 
 
+
 body {
     margin: 0;
     font-family: 'Montserrat Alternates', sans-serif;
@@ -21,31 +22,50 @@ body {
     background-color: #272727;
     text-align: center;
   }
-  .background {
-    position: absolute;
-    top: 0%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-linear-gradient(rgba(39, 39, 39, 0.9) 10%, rgba(39, 39, 39, 0.95) 50%, rgba(39, 39, 39, 1) 60%)
-, 
-    url('images/gavryland-ava-3.png') no-repeat center center fixed; 
-    opacity: 1; /* Ensure the image is fully visible */
-    background-size: cover;
-  }
+
+  p {
+
+    font-size: 20px;
+    }
+
+
+/* Контейнер для фона */
+.background-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 120vh;
+  overflow: hidden;
+  transform: translate(-50%, -25%);
+  z-index: -1;
+}
+
+/* Градиент (НЕ вращается) */
+.background-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(39, 39, 39, 0.9) 10%, rgba(39, 39, 39, 0.95) 50%, rgba(39, 39, 39, 1) 60%);
+  z-index: 1; /* Градиент остается сверху */
+}
+
+/* JPG-фон (ТОЛЬКО он вращается) */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/gavryland-ava-3.png') no-repeat center center;
+  background-size: contain;
+  transition: transform 1s ease-in-out; /* Плавный поворот */
+  z-index: 0; /* Картинка под градиентом */
+}
+
   
-  
-  .background-container {
-    position: fixed; /* Fixed positioning */
-    top: 80%;
-    left: 50%;
-    width: 90vw;
-    height: 90vw;
-    overflow: hidden; /* Prevents overflow */
-    transform: translate(-50%, -50%); /* Centering the container */
-    z-index: -1; /* Layering below other content */
-  }
 
   h1 {
     font-size: 4em;
@@ -117,6 +137,7 @@ linear-gradient(rgba(39, 39, 39, 0.9) 10%, rgba(39, 39, 39, 0.95) 50%, rgba(39, 
   .hero-section {
     background: url('hero.jpg') no-repeat center center / cover;
     display: flex;
+    flex-direction: column;
     align-items: top;
     margin-top: 10em;
     justify-content: center;
@@ -189,7 +210,7 @@ linear-gradient(rgba(39, 39, 39, 0.9) 10%, rgba(39, 39, 39, 0.95) 50%, rgba(39, 
     justify-content: center;
   }
 
-  .cards {
+.cards {
     display: flex;
     justify-content: space-between; /* Distributes cards evenly */
 }
@@ -232,10 +253,10 @@ linear-gradient(rgba(39, 39, 39, 0.9) 10%, rgba(39, 39, 39, 0.95) 50%, rgba(39, 
 
 .video-card {
 
- width: 800px;
-  margin: 20px;
+ width: 35vw;
+  padding-left: 80px;
 
-  border-radius: 8px;
+  border-radius: 16px;
   text-align: center;
   transition: all 0.3s ease-in-out;
   display: inline-block;
@@ -258,4 +279,79 @@ linear-gradient(rgba(39, 39, 39, 0.9) 10%, rgba(39, 39, 39, 0.95) 50%, rgba(39, 
 div.fp-watermark {
   display: none;
 }
+
+/*eye anim*/
+
+.slogan-container {
+  display: flex;
+  align-items: center; /* Центрирует по вертикали */
+  justify-content: center; /* Растягивает элементы на всю ширину */
+   /* Слоган теперь на всю ширину секции */
+  max-width: 1200px; /* Ограничение ширины, чтобы не было слишком широко */
+  margin: 0 auto; /* Центрирует в секции */
+  width: 80vw;
+  position: relative;
+}
+
+/* Левая часть слогана (НЕ моргает) */
+.slogan-left {
+  width: auto;
+  height: 100%; /* Подогнал под глаз */
+}
+
+/* Контейнер для глаза */
+.eye-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Поддержание ширины глаза */
+  height: 100%;
+}
+
+/* Глаз */
+.eye-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Скрывает часть зрачка, если он выходит за пределы */
+  transition: transform 0.2s ease-in-out;
+}
+
+.pupil {
+  position: absolute;
+  width: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;
+  background-color: inherit;  /* Задайте "inherit" или другой механизм, чтобы не переопределить цвет */
+
+}
+
+.eye {
+  width: auto;
+  height: 100%;
+}
+
+
+/* Правая часть слогана (МОРГАЕТ и МЕНЯЕТСЯ) */
+.slogan-right {
+  width: auto;
+  height: 100%;
+  transition: transform 0.2s ease-in-out; /* Плавное схлопывание */
+}
+
+
+/* - */
+
+
+.content {
+  display: flex;
+  flex-direction: column; /* Располагаем элементы по вертикали */
+  gap: 3vw; /* Добавляем вертикальное расстояние 20px между компонентами */
+  align-items: center; /* Центрирует по вертикали */
+  justify-content: center; 
+}
+
 

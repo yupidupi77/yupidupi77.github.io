@@ -141,25 +141,4 @@ new fullpage("#fullpage", {
 });
 
 
-
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const videoCards = document.querySelector('.video-cards');
-
-prevBtn.addEventListener('click', () => {
-  videoCards.scrollBy({
-    left: -window.innerWidth * 0.35, // Прокрутка на ширину одного элемента
-    behavior: 'smooth',
-  });
-});
-
-nextBtn.addEventListener('click', () => {
-  videoCards.scrollBy({
-    left: window.innerWidth * 0.35, // Прокрутка на ширину одного элемента
-    behavior: 'smooth',
-  });
-});
-
-
-
   

@@ -375,4 +375,11 @@ div.fp-watermark {
     width: 100%;
     font-size: 1em;
   }
+
+  .cards {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }

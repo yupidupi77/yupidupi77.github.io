@@ -38,23 +38,9 @@ if (window.innerWidth > 720) {
     document.addEventListener('mousemove', handleMouseMove);
 }
 
-// Плавное движение зрачка при ширине экрана меньше 720px (если тач)
-function smoothMovePupil() {
-    if (window.innerWidth < 720) {
-        const eyeRect = eyeWrapper.getBoundingClientRect();
-        const eyeCenterX = eyeRect.left + eyeRect.width / 2;
-        const eyeCenterY = eyeRect.top + eyeRect.height / 2;
 
-        moveX += (eyeCenterX - moveX) / 10;
-        moveY += (eyeCenterY - moveY) / 10;
 
-        pupil.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
-    }
 
-    requestAnimationFrame(smoothMovePupil);
-}
-
-smoothMovePupil(); // Стартуем плавное движение для мобильных устройств
 
 // Моргаем раз в 5 секунд (Глаз + ТОЛЬКО правый текст)
 setInterval(() => {
@@ -71,7 +57,7 @@ setInterval(() => {
 function adjustScale() {
     const sloganContainer = document.querySelector('.slogan-container');
     const screenWidth = window.innerWidth;
-    const scaleValue = Math.max(screenWidth * 0.00075, 0.5); // Минимальный масштаб 0.5
+    const scaleValue = Math.max(screenWidth * 0.0006, 0.5); // Минимальный масштаб 0.5
 
     sloganContainer.style.transform = `scale(${scaleValue})`;
     sloganContainer.style.transformOrigin = 'center';

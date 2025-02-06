@@ -570,7 +570,7 @@ div.fp-watermark {
 
   
   h1 {
-    font-size: 3em;
+    font-size: 2.4em;
   }
 
   p {
@@ -680,7 +680,7 @@ scale: 1.38;
 }
 
 .background-gradient {
-  background: linear-gradient(rgba(39, 39, 39, 1 ) 10%, rgba(39, 39, 39, 0.4) 30%, rgba(39, 39, 39, 1) 60%);
+  background: linear-gradient(rgba(39, 39, 39, 0.8 ) 10%, rgba(39, 39, 39, 0.25) 30%, rgba(39, 39, 39, 1) 60%);
 }
 
 }

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "local_hospital",   // Больница, психическое здоровье
         "forum",            // Обсуждения, форумы
         "psychology",       // Психология, психическое здоровье
-        "chat",             // Чат для общения с подписчиками
+           // Чат для общения с подписчиками
         "record_voice_over",// Запись голоса, связанная с подкастингом
         "question_answer",  // Вопросы и ответы
     ];
@@ -57,3 +57,18 @@ document.addEventListener("DOMContentLoaded", function () {
         // Убираем эффекты через 3 секунды с плавным переходом за 4 секунды
     });
 });
+
+document.querySelectorAll('.video-card').forEach(card => {
+    const overlay = card.querySelector('.video-overlay');
+    const iframe = card.querySelector('iframe');
+  
+    overlay.addEventListener('click', function() {
+      card.classList.add('activated'); // Убираем оверлей
+  
+      // Отправляем команду Play в YouTube iframe
+      iframe.contentWindow.postMessage(
+        '{"event":"command","func":"playVideo","args":""}', '*'
+      );
+    });
+  });
+  

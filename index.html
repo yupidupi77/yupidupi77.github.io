@@ -14,6 +14,7 @@
   
 </head>
 <body>
+  <div class="noise-wrap">  <div class="noise"></div></div>
   <div class="background-container">
     <div class="background-gradient"></div>
     <div class="background-image"></div>
@@ -67,44 +68,75 @@
     </div>
 
     <div class="section">
-      <div class="videos" style="width: 100%;" >
-<div class="carousel">
-  <div class="video-cards">
-    <a class="video-card" href="https://www.youtube.com/watch?v=EW4vkc6kwWw" target="_blank">
-      <iframe src="https://www.youtube.com/embed/EW4vkc6kwWw" frameborder="0" allowfullscreen></iframe>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=58o8mr8VEqU" target="_blank">
-      <iframe src="https://www.youtube.com/embed/58o8mr8VEqU" frameborder="0" allowfullscreen></iframe>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=rCon7BzU9jI&t" target="_blank">
-      <iframe src="https://www.youtube.com/embed/rCon7BzU9jI" frameborder="0" allowfullscreen></iframe>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=sJywHMjZ_rY&t=1767s" target="_blank">
-      <iframe src="https://www.youtube.com/embed/sJywHMjZ_rY" frameborder="0" allowfullscreen></iframe>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=EW4vkc6kwWw" target="_blank">
-      <iframe src="https://www.youtube.com/embed/EW4vkc6kwWw" frameborder="0" allowfullscreen></iframe>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=58o8mr8VEqU" target="_blank">
-      <iframe src="https://www.youtube.com/embed/58o8mr8VEqU" frameborder="0" allowfullscreen></iframe>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=rCon7BzU9jI&t" target="_blank">
-      <iframe src="https://www.youtube.com/embed/rCon7BzU9jI" frameborder="0" allowfullscreen></iframe>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=sJywHMjZ_rY&t=1767s" target="_blank">
-      <iframe src="https://www.youtube.com/embed/sJywHMjZ_rY" frameborder="0" allowfullscreen></iframe>
-    </a>
-  </div>
-</div>
+      <div class="videos">
+        <div class="carousel">
+          <div class="video-cards">
+            <a class="video-card" href="https://www.youtube.com/watch?v=EW4vkc6kwWw" target="_blank">
+              <iframe src="https://www.youtube.com/embed/EW4vkc6kwWw" frameborder="0" allowfullscreen></iframe>
+            </a>
+            <a class="video-card" href="https://www.youtube.com/watch?v=58o8mr8VEqU" target="_blank">
+              <iframe src="https://www.youtube.com/embed/58o8mr8VEqU" frameborder="0" allowfullscreen></iframe>
+            </a>
+            <a class="video-card" href="https://www.youtube.com/watch?v=rCon7BzU9jI&t" target="_blank">
+              <iframe src="https://www.youtube.com/embed/rCon7BzU9jI" frameborder="0" allowfullscreen></iframe>
+            </a>
+            <a class="video-card" href="https://www.youtube.com/watch?v=sJywHMjZ_rY&t=1767s" target="_blank">
+              <iframe src="https://www.youtube.com/embed/sJywHMjZ_rY" frameborder="0" allowfullscreen></iframe>
+            </a>
+            <!-- Repeat as needed -->
+          </div>
+        
+          <!-- Carousel buttons below the video -->
+          <div class="carousel-buttons">
+            <div class="control1">
+            <button class="carousel-button left" onclick="moveCarousel(1)">&#10094;</button>
+            <a href="https://www.patreon.com/gavrylin" target="_blank" class="btn">PATREON</a>
+            <button class="carousel-button right" onclick="moveCarousel(-1)">&#10095;</button>
+          </div>
+          <div class="control2" >
+            <a href="https://www.patreon.com/gavrylin" target="_blank" class="btn">PATREON</a>
+            <button class="carousel-button left" onclick="moveCarousel(1)">&#10094;</button>
+            <button class="carousel-button right" onclick="moveCarousel(-1)">&#10095;</button>
+          </div>
+          
+          </div>
+        </div>
+        
+        <!-- Inline JavaScript -->
+        <script>
+          function moveCarousel(direction) {
+            const videoCards = document.querySelector('.video-cards');
+            const cardWidth = document.querySelector('.video-card').offsetWidth;
+            const maxOffset = videoCards.scrollWidth - videoCards.clientWidth;
+        
+            // Calculate the current translateX value (if any)
+            let currentOffset = parseInt(videoCards.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
+        
+            // Calculate the new offset (move left if direction is -1, move right if direction is 1)
+            let newOffset = currentOffset + (direction * cardWidth);
+        
+            // Prevent the carousel from moving too far left (positive values) or too far right (negative values)
+            if (newOffset > 0) {
+              newOffset = 0;  // Prevent moving too far left
+            } else if (newOffset < -maxOffset) {
+              newOffset = -maxOffset;  // Prevent moving too far right
+            }
+        
+            // Apply the new transform value
+            videoCards.style.transform = `translateX(${newOffset}px)`;
+          }
+        </script>
+        
+               
 
-        <a href="https://www.patreon.com/gavrylin" target="_blank" class="btn">PATREON</a>
+        
       </div>
     </div>
 
     <div class="section">
       <section class="about">
         <h1>Я не доктор, якщо що. Це просто нікнейм.</h1>
-        <p>У мене немає офіційної психологічної чи медичної освіти...</p>
+        <p>Давайте поговоримо про психоделіки</p>
         <a href="#" class="btn">КОНСУЛЬТАЦІЯ</a>
       </section>
     </div>
@@ -117,13 +149,15 @@
               <div class="card">
                   <a href="odyssey.html">
                       <i class="fas fa-book"></i>
-                      <h2>Одиссея юного беженця</h2>
+                      <h2>Одиссея юного беженца
+                    
+                      </h2>
                   </a>
               </div>
               <div class="card">
                   <a href="history.html">
                       <i class="fas fa-file-medical-alt"></i>
-                      <h2>Історія хвороби</h2>
+                      <h2>История болезни</h2>
                   </a>
               </div>
               <div class="card">
@@ -145,8 +179,9 @@
           <input type="email" placeholder="Ваш email">
           <button type="submit">ЛЮБОВ</button>
         </form>
-        <p> © 2025 Dr.Gavrylin</p>
+       
       </section>
+      <p> © 2025 Dr.Gavrylin</p>
     </div>
   </div>
   

@@ -49,7 +49,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(39, 39, 39, 0.7) 10%, rgba(39, 39, 39, 0.8) 30%, rgba(39, 39, 39, 1) 60%);
+  background: linear-gradient(rgba(39, 39, 39, 0.4) 10%, rgba(39, 39, 39, 0.8) 30%, rgba(39, 39, 39, 1) 60%);
   z-index: 1;
 } 
 
@@ -67,7 +67,77 @@ p {
   will-change: transform; /* Оптимизация анимации */
 }
 
+.noise-wrap {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 
+  
+}
+
+.noise {
+  position: absolute;
+  width: 140vw;
+  height: 140vh;
+  background-image: url("https://assets.website-files.com/5b2c9f01921369b83a0f7b30/5b8ee6009c975e0af201f76c_black-orchid.png");
+  background-position: 0px 0px;
+  background-size: 150px;
+  animation: 1s infinite noise;
+}
+@keyframes noise {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  10% {
+    background-position: -5% -10%;
+  }
+  20% {
+    background-position: -15% 5%;
+  }
+  30% {
+    background-position: 7% -25%;
+  }
+  40% {
+    background-position: 20% 25%;
+  }
+  50% {
+    background-position: -25% 10%;
+  }
+  60% {
+    background-position: 15% 5%;
+  }
+  70% {
+    background-position: 0% 15%;
+  }
+  80% {
+    background-position: 25% 35%;
+  }
+  90% {
+    background-position: -10% 10%;
+  }
+}
 
 h1 {
   font-size: 4em;
@@ -96,31 +166,48 @@ a {
   color: white;
   font-size: 1.3em;
   text-align: center;
-  width: 380px;
   height: 80px;
   line-height: 80px;
   border-radius: 8px;
   margin: 20px auto;
+  transition: all 0.3s ease-in-out;
+  width: 380px; /* Обычное состояние */
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #E8E74E;
+  box-shadow: 4px 4px 0px #FF1F68;
 }
 
 .circle-btn {
-  display: inline-block;
+  display: inline-flex; /* Используем flex для центрирования */
   width: 56px;
   height: 56px;
   border-radius: 50%;
   background-color: #FF1F68;
-  margin: 0 10px;
+  margin: 10px 10px;
   position: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
-  display: flex;
+  transition: all 0.3s ease-in-out;
 }
 
 .circle-btn img {
   width: 32px;
   height: 32px;
   object-fit: contain;
+  transition: filter 0.3s ease-in-out;
+}
+
+.circle-btn:hover {
+  background-color: #E8E74E;
+  box-shadow: 2px 2px 2px #FF1F68; /* Добавляем тень */
+}
+
+.circle-btn:hover img {
+  filter: brightness(0); /* Делаем изображение черным */
 }
 
 .responsive-image {
@@ -142,7 +229,7 @@ a {
   overflow-x: scroll;
 }
 
-.about, .texts, .merch, .subscribe {
+.about, .texts, .merch, .subscribe, .videos {
   padding: 50px;
 }
 
@@ -162,18 +249,20 @@ a {
   display: flex;
   justify-content: center;
   gap: 10px;
+  width: 8em;
   width: 100%;
 }
 
 .subscribe input {
-  padding: 10px;
+  padding: 1em;
   font-size: 1.3em;
   font-family: 'Montserrat Alternates', sans-serif;
-  color: white;
+  color: #FF1F68;
   border: none;
+  height: 40px;
   border-radius: 8px;
   outline: none;
-  width: 100%;
+
 }
 
 .subscribe button {
@@ -181,11 +270,17 @@ a {
   background-color: #FF1F68;
   color: white;
   font-size: 24px;
-  padding: 10px 20px;
+  padding: 20px 2em;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   height: 80px;
+}
+
+.subscribe button:hover {
+  color: #000;
+  background-color: #E8E74E;
+  box-shadow: 4px 4px 0px #FF1F68;
 }
 
 .social-buttons {
@@ -220,42 +315,83 @@ a {
   font-family: 'Montserrat Alternates', sans-serif;
   margin: 0;
 }
-
 .carousel {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
   display: flex;
+  flex-direction: column; /* Align children in a column */
   align-items: center;
   padding: 20px 0;
 }
 
 .video-cards {
+  width: 100%;
   display: flex;
   transition: transform 0.5s ease;
 }
 
 .video-card {
-  width: 35vw;
-  padding-left: 80px;
+  width: 100%;
+
+   /* Ensure the video card takes full width */
+  flex-shrink: 0;  /* Prevent shrinking */
   border-radius: 16px;
   text-align: center;
   transition: all 0.3s ease-in-out;
   display: inline-block;
   text-decoration: none;
   color: #000;
+  
 }
 
 .video-card iframe {
   border-radius: 8px;
   width: 100%;
+  height: auto; /* Maintain aspect ratio */
   aspect-ratio: 16 / 9;
 }
 
-.video-card h2 {
-  font-size: 14px;
-  margin: 10px 0 0;
+.carousel-buttons {
+  max-width: 1200px;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;  /* Space between videos and buttons */
 }
+
+.carousel-button {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #979797;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 100%;
+  z-index: 10;
+  margin: 0 24px; /* Space out the buttons */
+}
+
+.carousel-button:hover {
+  color: #FF1F68;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-button.left {
+  order: 1; /* Левая кнопка */
+}
+
+.carousel-button.right {
+  order: 3; /* Правая кнопка */
+}
+
+.carousel-button .btn {
+  order: 2; /* Patreon в центре */
+}
+
+
 
 div.fp-watermark {
   display: none;
@@ -411,34 +547,50 @@ div.fp-watermark {
 /* Медиа-запросы для мобильных устройств */
 @media (max-width: 900px) {
   h1 {
-    font-size: 2em;
+    font-size: 3em;
   }
 
   p {
     font-size: 1em;
   }
 
-  .video-card {
-    padding-left: 40px;
-    width: 60vw;
-  }
-
-
-
+ 
   .btn {
-    width: 80%;
-    font-size: 1em;
+    width: 100%;
   }
 
-  .circle-btn {
-    width: 48px;
-    height: 48px;
+
+
+    .carousel-buttons {
+      display: flex;
+
+      align-items: center;
+      gap: 12px;
+    }
+  
+    .carousel-button.btn {
+      order: 1; /* Patreon остаётся сверху */
+    }
+  
+    .carousel-button.left {
+      order: 2; /* Левая кнопка уходит вниз */
+    }
+  
+    .carousel-button.right {
+      order: 3; /* Правая кнопка уходит вниз */
+    }
+  
+
+
+  .control1 {
+    display: none;
+  }
+  .control2 {
+    display: block;
+
   }
 
-  .circle-btn img {
-    width: 24px;
-    height: 24px;
-  }
+
 
   .responsive-image {
     width: 15em;
@@ -452,13 +604,9 @@ div.fp-watermark {
 
   .subscribe form {
     flex-direction: column;
-    gap: 10px;
+
   }
 
-  .subscribe input, .subscribe button {
-    width: 100%;
-    font-size: 1em;
-  }
 
   .cards {
     display: flex;
@@ -477,30 +625,39 @@ div.fp-watermark {
   align-items: center;
   justify-content: center;
   gap: 36px;
-scale: 1.4;
+scale: 1.38;
   width: 80vw;
   position: relative;
 }
 
+
 .eye-wrapper {scale: 1.3;
 
 }
-
-
+.subscribe input { 
+  text-align: center;
+}
 
 .background-container {
-  width: 200vw;
-  height: 200vh;
-  transform: translate(-50%, -34%);
+  width: 235vw;
+  height: 235vh;
+  transform: translate(-49%, -34%);
 }
 
 .background-gradient {
-  background: linear-gradient(rgba(39, 39, 39, 0.5) 10%, rgba(39, 39, 39, 0.8) 30%, rgba(39, 39, 39, 1) 60%);
+  background: linear-gradient(rgba(39, 39, 39, 1 ) 10%, rgba(39, 39, 39, 0.4) 30%, rgba(39, 39, 39, 1) 60%);
 }
 
 }
 
-
+@media (min-width: 900px) {
+  .control1 {
+    display: block;
+  }
+  .control2 {
+    display: none;
+  }
+}
 
 
 <-- photo effect -->

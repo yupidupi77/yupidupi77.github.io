@@ -1,3 +1,5 @@
+
+
 const pupil = document.querySelector('.pupil');
 const eyeWrapper = document.querySelector('.eye-wrapper');
 const changingText = document.getElementById('changing-text');
@@ -84,3 +86,6 @@ new fullpage("#fullpage", {
         backgroundImage.style.transform = `rotate(${rotationAngle}deg)`;
     },
 });
+
+
+

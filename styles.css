@@ -6,28 +6,29 @@
   font-style: normal;
 }
 
-section {
-max-width: 1200px;
-margin: auto;
-padding-bottom: 200px;
+body {
+  margin: 0;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: white;
+  background-color: #272727;
+  text-align: center;
+  cursor: url(images/deliku.svg');
 
 }
 
+section {
+  max-width: 1200px;
+  margin: auto;
 
+}
 
-body {
-    margin: 0;
-    font-family: 'Montserrat Alternates', sans-serif;
-    color: white;
-    background-color: #272727;
-    text-align: center;
+.content {
+ gap: 2vh;
   }
 
-  p {
-
-    font-size: 20px;
-    }
-
+p {
+  font-size: 20px;
+}
 
 /* Контейнер для фона */
 .background-container {
@@ -48,9 +49,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(39, 39, 39, 0.9) 10%, rgba(39, 39, 39, 0.95) 50%, rgba(39, 39, 39, 1) 60%);
-  z-index: 1; /* Градиент остается сверху */
-}
+  background: linear-gradient(rgba(39, 39, 39, 0.7) 10%, rgba(39, 39, 39, 0.8) 30%, rgba(39, 39, 39, 1) 60%);
+  z-index: 1;
+} 
 
 /* JPG-фон (ТОЛЬКО он вращается) */
 .background-image {
@@ -61,39 +62,33 @@ body {
   height: 100%;
   background: url('images/gavryland-ava-3.png') no-repeat center center;
   background-size: contain;
-  transition: transform 1s ease-in-out; /* Плавный поворот */
-  z-index: 0; /* Картинка под градиентом */
+  transition: filter 1s ease, transform 1s ease;
+  z-index: 0;
+  will-change: transform; /* Оптимизация анимации */
 }
 
-  
 
-  h1 {
-    font-size: 4em;
-    font-family: 'Cy Grotesk Grand Dark', sans-serif;
-    color: #E8E74E;
-    text-shadow: 2px 2px 0 #FF1F68;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 24px;
-    font-family: 'Cy Grotesk Grand Dark', sans-serif;
-    color: #ffffff;
-    text-align: center;
-  }
 
-  h3 {
-    font-size: 24px;
-    font-family: 'Cy Grotesk Grand Dark', sans-serif;
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  a {
-    color: white;
-    text-decoration: none;
-  }
-  
+h1 {
+  font-size: 4em;
+  font-family: 'Cy Grotesk Grand Dark', sans-serif;
+  color: #E8E74E;
+  text-shadow: 2px 2px 0 #FF1F68;
+  text-align: center;
+}
+
+h2, h3 {
+  font-size: 24px;
+  font-family: 'Cy Grotesk Grand Dark', sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
 .btn {
   display: inline-block;
   font-family: 'Cy Grotesk Grand Dark', sans-serif;
@@ -123,118 +118,107 @@ body {
 }
 
 .circle-btn img {
-  width: 32px; /* Размер иконки */
+  width: 32px;
   height: 32px;
   object-fit: contain;
 }
 
 .responsive-image {
   width: 20em;
-  height: auto; /* This maintains the aspect ratio */
-}  
+  height: auto;
+}
 
-  /* Секции */
-  .hero-section {
-    background: url('hero.jpg') no-repeat center center / cover;
-    display: flex;
-    flex-direction: column;
-    align-items: top;
-    margin-top: 10em;
-    justify-content: center;
-  }
-  
- 
-  
-  .video-scroll {
-    display: flex;
-    overflow-x: scroll;
-  }
-  
-  .about, .texts, .merch, .subscribe {
-    padding: 50px;
-  }
-  
-  .merch-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .merch-content img {
-    width: 400px;
-    height: 400px;
-    margin-right: 20px;
-  }
-  
-  .subscribe form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .subscribe input {
-    padding: 10px;
-    font-size: 1.3em;
-    display: inline-block;
-    font-family: 'Montserrat Alternates', sans-serif;
-    color: white;
-    font-size: 24px;
-    text-align: left;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    width: 100%;
-  }
-  
-  .subscribe button {
-    display: inline-block;
-    font-family: 'Cy Grotesk Grand Dark', sans-serif;
-    background-color: #FF1F68;
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 1.3em;
-    background-color: #FF1F68;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    height: 80px;
-  }
-  
-  .social-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* Секции */
+.hero-section {
+  background: url('hero.jpg') no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.video-scroll {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.about, .texts, .merch, .subscribe {
+  padding: 50px;
+}
+
+.merch-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.merch-content img {
+  width: 400px;
+  height: 400px;
+  margin-right: 20px;
+}
+
+.subscribe form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.subscribe input {
+  padding: 10px;
+  font-size: 1.3em;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+}
+
+.subscribe button {
+  font-family: 'Cy Grotesk Grand Dark', sans-serif;
+  background-color: #FF1F68;
+  color: white;
+  font-size: 24px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 80px;
+}
+
+.social-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .cards {
-    display: flex;
-    justify-content: space-between; /* Distributes cards evenly */
+  display: flex;
+  justify-content: space-between;
 }
 
 .card {
-    background-color :#272727;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    text-align: left;
-    width: 220px; /* Adjust the width according to your needs */
+  background-color: #272727;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  text-align: left;
+  width: 220px;
 }
 
 .card i {
-    font-size: 36px; /* Icon size */
-    margin-bottom: 10px;
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
 .card h2 {
-    font-size: 1em;
-    text-align: center;
-    font-family: 'Montserrat Alternates', sans-serif;
-    margin: 0; /* Remove default h2 margin */
+  font-size: 1em;
+  text-align: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+  margin: 0;
 }
 
 .carousel {
@@ -252,10 +236,8 @@ body {
 }
 
 .video-card {
-
- width: 35vw;
+  width: 35vw;
   padding-left: 80px;
-
   border-radius: 16px;
   text-align: center;
   transition: all 0.3s ease-in-out;
@@ -266,9 +248,8 @@ body {
 
 .video-card iframe {
   border-radius: 8px;
-  width: 100%; /* Ширина будет адаптироваться в зависимости от родительского элемента */
-  height: auto; /* Высота используется для поддержания соотношения сторон 16:9 */
-  aspect-ratio: 16 / 9; /* Поддержка соотношения сторон для современных браузеров */
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .video-card h2 {
@@ -280,43 +261,124 @@ div.fp-watermark {
   display: none;
 }
 
-/*eye anim*/
-
+/* Анимация глаза */
 .slogan-container {
   display: flex;
-  align-items: center; /* Центрирует по вертикали */
-  justify-content: center; /* Растягивает элементы на всю ширину */
-   /* Слоган теперь на всю ширину секции */
-  max-width: 1200px; /* Ограничение ширины, чтобы не было слишком широко */
-  margin: 0 auto; /* Центрирует в секции */
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
   width: 80vw;
   position: relative;
 }
 
-/* Левая часть слогана (НЕ моргает) */
 .slogan-left {
   width: auto;
-  height: 100%; /* Подогнал под глаз */
+  height: 100%;
 }
 
-/* Контейнер для глаза */
 .eye-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Поддержание ширины глаза */
+  width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
-/* Глаз */
 .eye-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden; /* Скрывает часть зрачка, если он выходит за пределы */
+  overflow: hidden;
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+
 }
+.bounce {
+  animation: bounceEffect 0.6s ease;
+}
+@keyframes bounceEffect {
+  0% {
+      transform: scale(1);
+  }
+  30% {
+      transform: scale(1.8);
+  }
+  50% {
+      transform: scale(0.9);
+  }
+  70% {
+      transform: scale(1.3);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+
+.glitch {
+  animation: glitchEffect 1s infinite;
+}
+
+@keyframes glitchEffect {
+  0% {
+      transform: translateX(0px);
+      filter: contrast(100%) saturate(100%) hue-rotate(0deg);
+  }
+  10% {
+      transform: translateX(-5px);
+      filter: contrast(120%) saturate(120%) hue-rotate(-30deg);
+  }
+  20% {
+      transform: translateX(5px);
+      filter: contrast(130%) saturate(130%) hue-rotate(10deg);
+  }
+  30% {
+      transform: translateX(-5px);
+      filter: contrast(140%) saturate(140%) hue-rotate(-10deg);
+  }
+  40% {
+      transform: translateX(5px);
+      filter: contrast(300%) saturate(150%) hue-rotate(10deg);
+  }
+  50% {
+      transform: translateX(0px);
+      filter: contrast(100%) saturate(100%) hue-rotate(0deg);
+  }
+  60% {
+      transform: translateX(-20px);
+      filter: contrast(300%) saturate(120%) hue-rotate(-10deg);
+  }
+  70% {
+      transform: translateX(5px);
+      filter: contrast(130%) saturate(130%) hue-rotate(10deg);
+  }
+  80% {
+      transform: translateX(-5px);
+      filter: contrast(140%) saturate(140%) hue-rotate(-10deg);
+  }
+  90% {
+      transform: translateX(5px);
+      filter: contrast(150%) saturate(150%) hue-rotate(10deg);
+  }
+  100% {
+      transform: translateX(0px);
+      filter: contrast(100%) saturate(100%) hue-rotate(0deg);
+  }
+}
+
+/* Анимация для вращения */
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 .pupil {
   position: absolute;
@@ -325,8 +387,7 @@ div.fp-watermark {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: transform 0.05s linear;
-  background-color: inherit;  /* Задайте "inherit" или другой механизм, чтобы не переопределить цвет */
-
+  background-color: inherit;
 }
 
 .eye {
@@ -334,78 +395,112 @@ div.fp-watermark {
   height: 100%;
 }
 
-
-/* Правая часть слогана (МОРГАЕТ и МЕНЯЕТСЯ) */
 .slogan-right {
   width: auto;
   height: 100%;
-  transition: transform 0.2s ease-in-out; /* Плавное схлопывание */
+  transition: transform 0.2s ease-in-out;
 }
-
-
-/* - */
-
 
 .content {
   display: flex;
-  flex-direction: column; /* Располагаем элементы по вертикали */
-  gap: 3vw; /* Добавляем вертикальное расстояние 20px между компонентами */
-  align-items: center; /* Центрирует по вертикали */
-  justify-content: center; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-
+/* Медиа-запросы для мобильных устройств */
 @media (max-width: 900px) {
-
   h1 {
-font-size: 2em;
-
+    font-size: 2em;
   }
-  p{
+
+  p {
     font-size: 1em;
   }
-
 
   .video-card {
     padding-left: 40px;
     width: 60vw;
-  
-   }  
-
-  .background-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 150vw;
-    height: 150vh;
-    overflow: hidden;
-    transform: translate(-50%, -35%);
-    z-index: -1;
-  }
-  
-  /* Градиент (НЕ вращается) */
-  .background-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(39, 39, 39, 0.5) 10%, rgba(39, 39, 39, 0.8) 30%, rgba(39, 39, 39, 1) 60%);
-    z-index: 1; /* Градиент остается сверху */
-  }
-  
-  /* JPG-фон (ТОЛЬКО он вращается) */
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/gavryland-ava-3.png') no-repeat center center;
-    background-size: contain;
-    transition: transform 1s ease-in-out; /* Плавный поворот */
-    z-index: 0; /* Картинка под градиентом */
   }
 
+
+
+  .btn {
+    width: 80%;
+    font-size: 1em;
+  }
+
+  .circle-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .circle-btn img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .responsive-image {
+    width: 15em;
+  }
+
+  .merch-content img {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .subscribe form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .subscribe input, .subscribe button {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  .cards {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
 }
+
+
+@media (max-width: 720px) {
+.slogan-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+scale: 1.4;
+  width: 80vw;
+  position: relative;
+}
+
+.eye-wrapper {scale: 1.3;
+
+}
+
+
+
+.background-container {
+  width: 200vw;
+  height: 200vh;
+  transform: translate(-50%, -34%);
+}
+
+.background-gradient {
+  background: linear-gradient(rgba(39, 39, 39, 0.5) 10%, rgba(39, 39, 39, 0.8) 30%, rgba(39, 39, 39, 1) 60%);
+}
+
+}
+
+
+
+
+<-- photo effect -->

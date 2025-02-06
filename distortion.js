@@ -58,17 +58,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.querySelectorAll('.video-card').forEach(card => {
-    const overlay = card.querySelector('.video-overlay');
-    const iframe = card.querySelector('iframe');
-  
-    overlay.addEventListener('click', function() {
-      card.classList.add('activated'); // Убираем оверлей
-  
-      // Отправляем команду Play в YouTube iframe
-      iframe.contentWindow.postMessage(
-        '{"event":"command","func":"playVideo","args":""}', '*'
-      );
-    });
-  });
-  

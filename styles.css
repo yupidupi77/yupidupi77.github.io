@@ -367,7 +367,7 @@ a {
 
 .video-card iframe {
   border-radius: 8px;
-  width: 100%;
+  width: 60%;
   height: auto; /* Maintain aspect ratio */
   aspect-ratio: 16 / 9;
 }
@@ -610,6 +610,12 @@ a {
 
   }
 
+
+  .video-card iframe {
+
+    width: 100%;
+
+  }
 
 
   .responsive-image {

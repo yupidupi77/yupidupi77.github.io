@@ -12,14 +12,11 @@ body {
   color: white;
   background-color: #272727;
   text-align: center;
-  cursor: url(images/deliku.svg');
-
 }
 
 section {
   max-width: 1200px;
   margin: auto;
-
 }
 
 .content {
@@ -695,4 +692,54 @@ scale: 1.38;
 }
 
 
-<-- photo effect -->
+
+.nav-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Колонки адаптируются */
+  margin: auto 64px;
+}
+
+
+
+.nav-item {  hyphens: auto; /* Добавляет переносы по слогам */
+  background: rgba(0, 0, 0, 0.2); /* Полупрозрачный фон */
+
+  box-shadow: 0 2 10px #272727;
+  cursor: pointer; 
+  margin: 16px;
+  transition: 1s ease-in-out;
+  overflow: hidden; 
+}
+
+.nav-item-img {
+hyphens: auto; /* Добавляет переносы по слогам */
+filter: grayscale(0);
+width: 100%;
+transform-origin: bottom center;
+transition: 0.5s ease-in-out;
+}
+
+.nav-item:hover {  
+  scale: 1.04;
+  filter: none;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-item:hover .nav-item-img {
+  scale: 1.2;
+  transition: 0.5s ease-in-out;
+filter: grayscale(0);
+}
+.nav-item:hover h5 {
+
+  color: #FF1F68;
+  text-shadow: 1px 1px 0 #E8E74E;
+}
+
+h5 {
+  font-size: 28px;
+
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #fffffe;
+  text-align: center;
+}

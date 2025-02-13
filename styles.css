@@ -1,10 +1,102 @@
-/* Основные стили */
+
 @font-face {
   font-family: 'Cy Grotesk Grand Dark';
   src: url('fonts/cy-grotesk-grand-dark.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Literata';
+  src: url('/fonts/Literata-VariableFont_opsz,wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Literata-Italic';
+  src: url('/fonts/Literata-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-style: normal;
+}
+/* Стиль для полосы прогресса */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 5px; /* Толщина полосы */
+  background-color: rgba(255, 63, 108, 0.3); /* Желтый цвет с прозрачностью */
+  z-index: 1000; /* Помещаем поверх других элементов */
+  transition: width 0.1s ease-out; /* Плавное изменение */
+}
+
+.social-links {
+  position: fixed;
+  top: 20px;      /* Отступ от верхней границы */
+  right: 20px;    /* Отступ от правой границы */
+  display: flex;
+  flex-direction: column;  /* Вертикальное расположение */
+  align-items: center;     /* Выравнивание по центру */
+  gap: 15px;      /* Расстояние между элементами */
+  opacity: 0.8;   /* Полупрозрачность */
+  z-index: 1000;  /* Устанавливаем на передний план */
+}
+
+.sticky-logo {
+  opacity: 20%;
+  
+  position: fixed;
+  bottom: 64px;
+  right: -108px;
+  font-size: 16px;
+  color: #5f5f5f;
+  font-weight: bold;
+  text-decoration: none;
+  rotate: -90deg;
+  padding: 10px;
+  z-index: 1000; /* Чтобы ссылка всегда была поверх других элементов */
+}
+
+.sticky-logo:hover {
+  opacity: 100%;
+}
+
+.sticky-link:hover {
+  opacity: 100%;
+}
+
+.sticky-link2 {
+  
+  
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  color: #5f5f5f;
+  font-weight: bold;
+  text-decoration: none;
+
+  z-index: 1000; /* Чтобы ссылка всегда была поверх других элементов */
+}
+
+
+.sticky-link {
+  opacity: 20%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: -20px;
+  right: -10px;
+  font-size: 16px;
+  color: #5f5f5f;
+  font-weight: bold;
+  text-decoration: none;
+
+  z-index: 1000; /* Чтобы ссылка всегда была поверх других элементов */
+}
+
+/* Медиазапрос для экранов шириной от 900px */
+
+
 
 body {
   margin: 0;
@@ -13,6 +105,7 @@ body {
   background-color: #272727;
   text-align: center;
 }
+
 
 section {
   max-width: 1200px;
@@ -25,6 +118,7 @@ section {
 
 p {
   font-size: 20px;
+  line-height: 1.8;
 }
 
 /* Контейнер для фона */
@@ -48,6 +142,7 @@ p {
   height: 100%;
   background: linear-gradient(rgba(39, 39, 39, 0.4) 10%, rgba(39, 39, 39, 0.8) 30%, rgba(39, 39, 39, 1) 60%);
   z-index: 1;
+  border-radius: 100%;
 } 
 
 /* JPG-фон (ТОЛЬКО он вращается) */
@@ -62,10 +157,11 @@ p {
   transition: filter 1s ease, transform 1s ease;
   z-index: 0;
   will-change: transform; /* Оптимизация анимации */
+  z-index: -2;
 }
 
 .noise-wrap {
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   right: 0px;
@@ -90,19 +186,21 @@ p {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-
+z-index: -1;
   
 }
 
 
 .noise {
   position: absolute;
-  width: 140vw;
-  height: 140vh;
+  width: 100vw;
+  height: 100vh;
   background-image: url("https://assets.website-files.com/5b2c9f01921369b83a0f7b30/5b8ee6009c975e0af201f76c_black-orchid.png");
   background-position: 0px 0px;
   background-size: 150px;
   animation: 1s infinite noise;
+  opacity: 0.3;
+  z-index: -2;
 }
 @keyframes noise {
   0%, 100% {
@@ -145,11 +243,22 @@ h1 {
   text-align: center;
 }
 
-h2, h3 {
-  font-size: 24px;
-  font-family: 'Cy Grotesk Grand Dark', sans-serif;
-  color: #ffffff;
+h2 {
+  font-size: 28px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #E8E74E;
   text-align: center;
+  font-weight: bold;
+}
+
+h3
+{
+  padding: 48px;
+font-size: 48px;
+font-family: 'Cy Grotesk Grand Dark';
+text-align: center;
+color: #272727;
+
 }
 
 a {
@@ -213,11 +322,11 @@ a {
   height: auto;
 }
 
+.small
 
 
 /* Секции */
 .hero-section {
-  background: url('hero.jpg') no-repeat center center / cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -230,8 +339,8 @@ a {
 }
 
 .about, .texts, .merch, .subscribe, .videos {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 36px;
+  padding-right: 36px;
 }
 
 .merch-content {
@@ -562,6 +671,9 @@ div.fp-watermark {
   justify-content: center;
 }
 
+
+
+
 /* Медиа-запросы для мобильных устройств */
 @media (max-width: 900px) {
 
@@ -688,58 +800,210 @@ scale: 1.38;
   }
   .control2 {
     display: none;
+
   }
+
 }
 
+  .header-longreads {   
+    background-color: #272727 0.2;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 32px 0px 32px 0px;
+    border-radius: 72px;
+  }
 
 
-.nav-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Колонки адаптируются */
-  margin: auto 64px;
-}
 
 
+  .nav-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Колонки адаптируются */
+    margin: auto 64px;
+    z-index: 10;
+  }
+  
 
-.nav-item {  hyphens: auto; /* Добавляет переносы по слогам */
-  background: rgba(0, 0, 0, 0.2); /* Полупрозрачный фон */
 
-  box-shadow: 0 2 10px #272727;
-  cursor: pointer; 
-  margin: 16px;
-  transition: 1s ease-in-out;
-  overflow: hidden; 
-}
+  .nav-item {  hyphens: auto; /* Добавляет переносы по слогам */
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    box-shadow: 0 2 10px #272727;
+    cursor: pointer; 
+    margin: 16px;
+    transition: 1s linear;
+    overflow: hidden; 
+  }
 
-.nav-item-img {
-hyphens: auto; /* Добавляет переносы по слогам */
-filter: grayscale(0);
-width: 100%;
-transform-origin: bottom center;
-transition: 0.5s ease-in-out;
-}
+  .nav-item-img {
+  hyphens: auto; /* Добавляет переносы по слогам */
+  width: 100%;
+  transform-origin: bottom center;
+  transition: 0.5s linear;
+  }
 
-.nav-item:hover {  
-  scale: 1.04;
-  filter: none;
-  transition: 0.5s ease-in-out;
-}
+  .nav-item:hover {  
+    scale: 1.04;
+    filter: none;
+    transition: 0.5s linear;
+  }
 
-.nav-item:hover .nav-item-img {
-  scale: 1.2;
-  transition: 0.5s ease-in-out;
-filter: grayscale(0);
-}
-.nav-item:hover h5 {
+  .nav-item:hover .nav-item-img {
+    scale: 1.2;
+    transition: 0.5s linear;
+    filter: grayscale(0);
+  }
+  
+  .nav-item:hover h2 {
 
-  color: #FF1F68;
-  text-shadow: 1px 1px 0 #E8E74E;
+  }
+
+  
+  .hero {
+    display: flex;
+    align-items: center;
+  }
+
+
+.rich-text{
+    text-align: left;
+    font-family: "Literata", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 18px; /* Можно изменить размер */
+    line-height: 1.5;
 }
 
 h5 {
-  font-size: 28px;
-
-  font-family: 'Montserrat Alternates', sans-serif;
-  color: #fffffe;
-  text-align: center;
+  font-family: "Literata", serif;
 }
+
+.block-paragraph  {
+  max-width: 768px;
+  margin: 24px auto;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 24px
+}
+
+.block-paragraph::first-letter { font-size: 164px;
+  float: left; /* Обеспечивает обтекание текста */
+  line-height: 1; /* Корректирует высоту */
+  margin-right: 16px; /* Добавляет отступ справа от буквицы */
+  font-family: "Literata-Italic", serif;
+  font-weight: 800;
+text-shadow: 2px 2px 0 #FF1F68;
+color: #E8E74E;
+}
+
+
+
+.content-img {
+  position: relative;
+  display: inline-block;
+  opacity: 0; /* Начальная непрозрачность */
+  transform: scale(0.8); /* Начальный масштаб */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Плавный переход */
+}
+
+.content-img span {
+  display: block;
+  font-family: "Literata", serif;
+  font-size: 12px;
+  color: #5f5f5f;
+  margin-top: 5px; /* Отступ от изображения */
+}
+
+.content-img a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.content-img a:hover {
+  text-decoration: underline;
+}
+
+.block-heading_h2    {
+  max-width: 100%;
+  width: 100%;
+  margin: 0px; /* Убираем автоматические отступы */
+  background-color: rgb(255, 31, 104);
+  box-shadow: rgb(232, 231, 78) 0px 8px 0px;
+}
+
+figure {
+  
+  margin: 16px;
+}
+
+
+
+.content-blockquote {
+  background-color: #E8E74E;
+  color: #272727;
+  padding: 72px;
+  margin: 48px 48px;
+  font-size: 48px;
+  font-family: "Literata-Italic", serif;
+  font-weight: 800;
+  text-align: center;
+  position: relative; /* Нужно для смещения кавычек */
+}
+
+.content-blockquote::before {
+
+  font-family: 'Cy Grotesk Grand Dark';
+  content: "“"; /* Левая кавычка */
+  font-size: 108px; /* Размер больше, чем текст */
+  font-weight: bold;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  color: #FF1F68; /* Цвет кавычек (можно настроить) */
+}
+
+.content-blockquote::after {
+  font-family: 'Cy Grotesk Grand Dark';
+  content: "”"; /* Правая кавычка */
+  font-size: 96px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  color: #FF1F68;
+}
+
+
+
+.mamont{
+
+  font-size: 96px;
+}
+
+@media (max-width: 720px) {
+  .mamont{
+
+  font-size: 36px;
+  }
+  .nav-container {
+margin: 0;
+
+  }
+
+  h3 {
+  font-size:  32px;
+  }
+
+  .content-blockquote {
+    font-size: 28px;
+  }
+
+  img {width: 100%;
+    margin: 0px auto;}
+    
+}
+

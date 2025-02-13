@@ -161,7 +161,7 @@ p {
 }
 
 .noise-wrap {
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   right: 0px;
@@ -193,13 +193,13 @@ p {
 
 .noise {
   position: fixed;
-  width: 140vw;
-  height: 140vh;
+  width: 100vw;
+  height: 10vh;
   background-image: url("https://assets.website-files.com/5b2c9f01921369b83a0f7b30/5b8ee6009c975e0af201f76c_black-orchid.png");
   background-position: 0px 0px;
   background-size: 150px;
   animation: 1s infinite noise;
-  z-index: -1;
+  z-index: -2;
 }
 @keyframes noise {
   0%, 100% {
@@ -976,10 +976,6 @@ figure {
   color: #FF1F68;
 }
 
-.content-title {
-
-
-}
 
 
 .mamont{

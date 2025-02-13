@@ -24,7 +24,7 @@
   left: 0;
   width: 0%;
   height: 5px; /* Толщина полосы */
-  background-color: rgba(255, 255, 255, 0.3); /* Желтый цвет с прозрачностью */
+  background-color: rgba(255, 63, 108, 0.3); /* Желтый цвет с прозрачностью */
   z-index: 1000; /* Помещаем поверх других элементов */
   transition: width 0.1s ease-out; /* Плавное изменение */
 }
@@ -40,14 +40,33 @@
   opacity: 0.8;   /* Полупрозрачность */
   z-index: 1000;  /* Устанавливаем на передний план */
 }
-.logo2 {
-  width: 120px;
-  height: 360px;  /* Можно настроить размер логотипа */
-  transform: rotate(-90deg); /* Поворот логотипа */
+
+.sticky-logo {
+  opacity: 20%;
+  
+  position: fixed;
+  bottom: 64px;
+  right: -108px;
+  font-size: 16px;
+  color: #5f5f5f;
+  font-weight: bold;
+  text-decoration: none;
+  rotate: -90deg;
+  padding: 10px;
+  z-index: 1000; /* Чтобы ссылка всегда была поверх других элементов */
 }
 
-.sticky-link {
-  display: none;
+.sticky-logo:hover {
+  opacity: 100%;
+}
+
+.sticky-link:hover {
+  opacity: 100%;
+}
+
+.sticky-link2 {
+  
+  
   position: fixed;
   top: 10px;
   left: 10px;
@@ -55,16 +74,28 @@
   color: #5f5f5f;
   font-weight: bold;
   text-decoration: none;
-  padding: 10px;
+
+  z-index: 1000; /* Чтобы ссылка всегда была поверх других элементов */
+}
+
+
+.sticky-link {
+  opacity: 20%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: -20px;
+  right: -10px;
+  font-size: 16px;
+  color: #5f5f5f;
+  font-weight: bold;
+  text-decoration: none;
+
   z-index: 1000; /* Чтобы ссылка всегда была поверх других элементов */
 }
 
 /* Медиазапрос для экранов шириной от 900px */
-@media (min-width: 900px) {
-  .sticky-link {
-      display: block; /* Для отображения ссылки на больших экранах */
-  }
-}
+
 
 
 body {
@@ -212,10 +243,11 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
-  font-family: 'Cy Grotesk Grand Dark', sans-serif;
+  font-size: 28px;
+  font-family: 'Montserrat Alternates', sans-serif;
   color: #E8E74E;
   text-align: center;
+  font-weight: bold;
 }
 
 h3
@@ -289,6 +321,7 @@ a {
   height: auto;
 }
 
+.small
 
 
 /* Секции */
@@ -805,8 +838,8 @@ scale: 1.38;
 
   .nav-item-img {
   hyphens: auto; /* Добавляет переносы по слогам */
-  filter: grayscale(0);
   width: 100%;
+  max-width: 300px;
   transform-origin: bottom center;
   transition: 0.5s linear;
   }
@@ -824,8 +857,7 @@ scale: 1.38;
   }
   
   .nav-item:hover h2 {
-    color: #FF1F68;
-    text-shadow: 1px 1px 0 #E8E74E;
+
   }
 
   
@@ -857,7 +889,7 @@ h5 {
   padding: 24px
 }
 
-.block-paragraph::first-letter { font-size: 108px;
+.block-paragraph::first-letter { font-size: 164px;
   float: left; /* Обеспечивает обтекание текста */
   line-height: 1; /* Корректирует высоту */
   margin-right: 16px; /* Добавляет отступ справа от буквицы */
@@ -897,10 +929,15 @@ color: #E8E74E;
 .block-heading_h2    {
   max-width: 100%;
   width: 100%;
-  margin: 0; /* Убираем автоматические отступы */
+  margin: 0px; /* Убираем автоматические отступы */
+  background-color: rgb(255, 31, 104);
+  box-shadow: rgb(232, 231, 78) 0px 8px 0px;
 }
 
-
+figure {
+  
+  margin: 16px;
+}
 
 
 
@@ -908,7 +945,7 @@ color: #E8E74E;
   background-color: #E8E74E;
   color: #272727;
   padding: 72px;
-  margin: 48px auto;
+  margin: 48px 48px;
   font-size: 48px;
   font-family: "Literata-Italic", serif;
   font-weight: 800;
@@ -939,11 +976,6 @@ color: #E8E74E;
   color: #FF1F68;
 }
 
-.block-heading_h2   {
-  background-color: rgb(255, 31, 104);
-  box-shadow: rgb(232, 231, 78) 8px 8px 0px;
-  }
-
 .content-title {
 
 
@@ -965,6 +997,13 @@ margin: 0;
 
   }
 
+  h3 {
+  font-size:  32px;
+  }
+
+  .content-blockquote {
+    font-size: 28px;
+  }
 
   img {width: 100%;
     margin: 0px auto;}

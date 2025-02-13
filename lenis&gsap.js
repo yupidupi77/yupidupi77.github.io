@@ -70,7 +70,7 @@ document.querySelectorAll('.content-img').forEach(img => {
     {
     filter: "blur(0px) grayscale(0)", 
       opacity: 1, // Прозрачность до нормальной
-      scale: 0.95,   // Масштаб до 1 (без увеличения)
+      scale: 1,   // Масштаб до 1 (без увеличения)
       rotation: 0, // Легкое вращение
       scrollTrigger: {
         trigger: img,
@@ -172,3 +172,24 @@ document.querySelectorAll('.content-img').forEach(img => {
 
     requestAnimationFrame(raf);
 });
+
+
+// Получаем элемент полосы прогресса
+const progressBar = document.querySelector('.progress-bar');
+
+// Функция для обновления ширины полосы
+function updateProgressBar() {
+    // Вычисляем процент прокрутки
+    const scrollPosition = window.scrollY; // Текущая прокрутка
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight; // Общая высота страницы
+    const scrollPercentage = (scrollPosition / pageHeight) * 100;
+
+    // Обновляем ширину полосы прогресса
+    progressBar.style.width = scrollPercentage + '%';
+}
+
+// Добавляем обработчик события прокрутки
+window.addEventListener('scroll', updateProgressBar);
+
+// Инициализация при загрузке страницы (на случай, если скроллинг уже произошел)
+updateProgressBar();

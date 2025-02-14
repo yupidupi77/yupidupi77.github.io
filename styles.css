@@ -327,6 +327,7 @@ a {
 
 /* Секции */
 .hero-section {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -862,10 +863,7 @@ scale: 1.38;
   }
 
   
-  .hero {
-    display: flex;
-    align-items: center;
-  }
+
 
 
 .rich-text{
@@ -927,12 +925,13 @@ color: #E8E74E;
   text-decoration: underline;
 }
 
-.block-heading_h2    {
-  max-width: 100%;
+.block-heading_h2 {
   width: 100%;
-  margin: 0px; /* Убираем автоматические отступы */
-  background-color: rgb(255, 31, 104);
-  box-shadow: rgb(232, 231, 78) 0px 8px 0px;
+  max-width: 100%;
+  color: #FF1F68;
+  background: url('images/gavryland-ava-4.jpg') repeat bottom center;
+  background-attachment: fixed; /* Фон остается на месте при прокрутке */
+  background-size: 100vh;
 }
 
 figure {
@@ -990,20 +989,57 @@ figure {
   font-size: 36px;
   }
   .nav-container {
-margin: 0;
-
+    margin: 0;
   }
 
+  figure {
+    width: 100%;
+    height: auto;
+      margin: 0px;
+  }
+
+  .block-paragraph::first-letter { font-size: 108px;
+  }
+  
+  .content-blockquote {margin: 16px;}
+
+  .content-blockquote::before {
+
+
+    top: -20px;
+    left: -8px;
+    color: #FF1F68; 
+  }
+  
+  .content-blockquote::after {
+
+    bottom: -40px;
+right: -8px;
+    color: #FF1F68;
+  }
+
+
+
+  .content-img {
+  width: 100%;
+  }
   h3 {
   font-size:  32px;
   }
 
   .content-blockquote {
-    font-size: 28px;
+    font-size: 24px;
   }
 
-  img {width: 100%;
-    margin: 0px auto;}
+
     
 }
 
+.devider {
+  text-shadow: 2px 2px 0 #FF1F68;
+  color: #E8E74E;
+padding: 0%;
+margin: 0% auto;
+
+
+}

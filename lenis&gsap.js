@@ -1,17 +1,19 @@
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
-   
-
+  
 
 
     gsap.registerPlugin(ScrollTrigger);
 
   
 
-
+    window.onload = function () {
     document.querySelectorAll(".content-blockquote").forEach((blockquote) => {
         // Разделение текста блока на отдельные буквы
-        const text = new SplitType(blockquote, { types: "chars, words" });
+        const text = new SplitType(blockquote, { types: "chars, words", preserveWhitespace: true });
         
         // Анимация текста
         gsap.from(text.chars, {
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Анимация заголовков
         document.querySelectorAll(".block-heading_h2", blockquote).forEach((heading) => {
-            const headingText = new SplitType(heading, { types: "chars" });
+            const headingText = new SplitType(heading, { types: "chars", preserveWhitespace: true });
     
             // Анимация заголовков
             gsap.from(headingText.chars, {
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
-    
+};
 
 
 
@@ -193,3 +195,5 @@ window.addEventListener('scroll', updateProgressBar);
 
 // Инициализация при загрузке страницы (на случай, если скроллинг уже произошел)
 updateProgressBar();
+
+

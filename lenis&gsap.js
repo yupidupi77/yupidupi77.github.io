@@ -195,4 +195,31 @@ window.addEventListener('scroll', updateProgressBar);
 // Инициализация при загрузке страницы (на случай, если скроллинг уже произошел)
 updateProgressBar();
 
+const observer = new MutationObserver(() => {
+    initStickyScroll(); // Перезапускаем функцию скрытия
+});
+
+// Наблюдаем за изменениями в body (вдруг элементы подгрузятся позже)
+observer.observe(document.body, { childList: true, subtree: true });
+
+function initStickyScroll() {
+    let lastScrollTop = 0;
+    const stickyElements = document.querySelectorAll(".sticky-link, .sticky-link2");
+
+    if (stickyElements.length === 0) return; // Если элементов нет, просто выходим
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        stickyElements.forEach(element => {
+            if (scrollTop > lastScrollTop) {
+                element.classList.add("hide");
+            } else {
+                element.classList.remove("hide");
+            }
+        });
+
+        lastScrollTop = Math.max(scrollTop, 0);
+    });
+}
 

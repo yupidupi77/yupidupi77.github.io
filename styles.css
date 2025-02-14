@@ -78,8 +78,8 @@
   opacity: 20%;
 
   position: fixed;
-  bottom: 64px;
-  left: -100px;
+  bottom: 100px;
+  left: -105px;
   font-size: 16px;
   color: #5f5f5f;
   font-weight: bold;
@@ -92,8 +92,8 @@
 .sticky-design {
   font-size: 10px;
   position: fixed;
-  bottom: 80px;
-  right: -80px;
+  bottom: 100px;
+  right: -83px;
   font-size: 16px;
   color: #5f5f5f;
   font-weight: bold;
@@ -132,7 +132,7 @@ color: #e8e74e;
   font-weight: bold;
   text-decoration: none;
   z-index: 1000;
-  
+  transition: transform 0.3s ease;
   /* Чтобы ссылка всегда была поверх других элементов */
 }
 
@@ -163,13 +163,13 @@ color: #e8e74e;
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: -20px;
+  top: -32px;
   right: -10px;
   font-size: 16px;
   color: #5f5f5f;
   font-weight: bold;
   text-decoration: none;
-
+  transition: transform 0.3s ease;
   z-index: 1000;
   /* Чтобы ссылка всегда была поверх других элементов */
 }
@@ -395,7 +395,7 @@ a {
 .circle-btn img {
   width: 32px;
   height: 32px;
-  color:#979797
+  color:#979797;
   object-fit: contain;
   transition: filter 0.3s ease-in-out;
 }
@@ -1144,4 +1144,11 @@ figure {
   color: #e8e74e;
   padding: 0%;
   margin: 0% auto;
+}
+
+
+
+
+.hide {
+  transform: translateY(-300%);
 }

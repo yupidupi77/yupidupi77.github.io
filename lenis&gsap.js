@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
 
-    window.onload = function () {
     document.querySelectorAll(".content-blockquote").forEach((blockquote) => {
         // Разделение текста блока на отдельные буквы
-        const text = new SplitType(blockquote, { types: "chars, words", preserveWhitespace: true });
+        const text = new SplitType(blockquote, { types: "chars, words"});
         
         // Анимация текста
         gsap.from(text.chars, {
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Анимация заголовков
         document.querySelectorAll(".block-heading_h2", blockquote).forEach((heading) => {
-            const headingText = new SplitType(heading, { types: "chars", preserveWhitespace: true });
+            const headingText = new SplitType(heading, { types: "chars"});
     
             // Анимация заголовков
             gsap.from(headingText.chars, {
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
-};
+
 
 
 

@@ -21,3 +21,4 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Ошибка загрузки компонентов:", error));
 });
+

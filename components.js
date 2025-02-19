@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         formFilled();
                         document.querySelector('#subscribeForm').reset(); 
 
-                        fetch('https://script.google.com/macros/s/AKfycbyqa8ddnvHW_ldLiC2u_EHrYKJpNkZE-eT-MqmtHqiJ9bL5pvHPgMAorDOEn9lMUPTH/exec', {
+                        fetch('https://script.google.com/macros/s/AKfycbzozDwSoC1wveXIBToEe3KpJqtWv6rU81H_kAAq0X9NCOycbs4S89HalUmQX5rmMiVKzA/exec', {
                             method: 'POST',
                             body: new URLSearchParams({ email: email }),
                         })
@@ -42,12 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
 
-                // Закрытие попапа по клику на фон или кнопку
-                document.body.addEventListener('click', function(e) {
-                    if (e.target.classList.contains('popup-overlay') || e.target.classList.contains('popup-close')) {
-                        closePopup();
-                    }
-                });
+
             }
         })
         .catch(error => console.error("Ошибка загрузки компонентов:", error));
@@ -59,15 +54,10 @@ function showPopup() {
     popup.style.display = 'flex';
 
     // Автоматическое закрытие через 3 секунды
-    setTimeout(() => {
-        closePopup();
-    }, 2000);
 }
 function formFilled() {
     let formm = document.getElementById('subscribeForm');
     formm.style.display = 'none';}
 
 // Функция закрытия попапа
-function closePopup() {
-    document.getElementById('thankYouPopup').style.display = 'none';
-}
+

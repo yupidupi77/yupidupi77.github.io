@@ -581,7 +581,7 @@ a {
 
 .video-card iframe {
   border-radius: 8px;
-  width: 90%;
+  width: 80%;
   height: auto;
   /* Maintain aspect ratio */
   aspect-ratio: 16 / 9;
@@ -613,7 +613,7 @@ a {
 }
 
 .carousel-button:hover {
-  color: #ff1f68;
+  color: #e8e74e;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -1201,9 +1201,12 @@ flex-direction: column;
 }
 
 .footer-desc {
-  padding-top: 16px;
-  font-size: 14px;
+  padding-top: 24px;
+  font-size: 16px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .footer-desc a {

@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let newIcon = availableImages.splice(randomIndex, 1)[0]; // Удаляем выбранное изображение из массива
 
         pupil.src = newIcon;
-        pupil.style.width = "48px";http://127.0.0.1:3000/images/eye.svg
+        pupil.style.width = "48px";
         pupil.style.height = "48px";
 
         eyeContainer.classList.add("bounce");

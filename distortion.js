@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pupil = document.querySelector(".pupil");
 
     const allImages = [
-        "images/globe_with_meridians.png", "images/heart.png", "images/herb.png",
+        "images/globe_with_meridians.png", "images/heart.png", "images/herb.png", "images/son.png",
         "images/pill.png", "images/snowflake.png", "images/sunglasses.png", "images/clinking_glasses.png", "images/alien.png"
     ];
 

@@ -3,42 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Роман Гаврилін – авторський контент</title>
+  <meta name="description" content="Офіційний сайт Романа Гавриліна: психологія, психіатрія та психоделіки." >
 
-
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Rounded|Material+Icons+Two+Tone|Material+Icons+Sharp" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <!-- FullPage.js styles -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons+Rounded|Material+Icons+Two+Tone|Material+Icons+Sharp" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.18/fullpage.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
   <script src="/components.js"></script>
-  <meta name="description" content="Офіційний сайт Романа Гавриліна: психологія, психіатрія та психоделіки." >
+
 </head>
 
 
 
 <body>
 
-  <!--
-  <nav class="sticky-link2">
-    <ul style="text-align: left; color:grey;">
-        <li><a href="#consultation">Консультація</a></li>
-        <li><a href="#my-texts">Мої тексти</a></li>
-        <li><a href="#subscribe">Підписка</a></li>
-        <li><a href="#patreon">Патреон</a></li>
-    </ul>
-</nav>
--->
-
-
-  <div class="noise-wrap">  <div class="noise"></div></div>
+  <div class="noise-wrap">  <div class="noise"></div> </div>
   <div class="background-container">
     <div class="background-gradient"></div>
     <div class="background-image"></div>
   </div>
-  <div id="fullpage" data-aos="zoom-in">
+  <div id="fullpage">
     <div class="section">
       <header>
         <section class="hero-section">
@@ -88,7 +74,9 @@
 
     <div class="section">
       <div class="videos">
+        <button class="carousel-button left" onclick="moveCarousel(1)">&#10094;</button>
         <div class="carousel">
+          
           <div class="video-cards">
             <a class="video-card" href="https://www.youtube.com/watch?v=EW4vkc6kwWw?enablejsapi=1" target="_blank">
               <iframe src="https://www.youtube.com/embed/EW4vkc6kwWw" frameborder="0" allowfullscreen></iframe>
@@ -104,24 +92,27 @@
             </a>
             <!-- Repeat as needed -->
           </div>
-        
+          
           <!-- Carousel buttons below the video -->
-          <div class="carousel-buttons">
+          <!--  <div class="carousel-buttons">
             <div class="control1">
             <button class="carousel-button left" onclick="moveCarousel(1)">&#10094;</button>
             <a href="https://www.patreon.com/gavrylin" target="_blank" class="btn">PATREON</a>
             <button class="carousel-button right" onclick="moveCarousel(-1)">&#10095;</button>
-          </div>
-          <div class="control2" >
-            <a href="https://www.patreon.com/gavrylin" target="_blank" class="btn">PATREON</a>
-            <button class="carousel-button left" onclick="moveCarousel(1)">&#10094;</button>
-            <button class="carousel-button right" onclick="moveCarousel(-1)">&#10095;</button>
-          </div>
+          </div>-->
+
           
           </div>
+          <button class="carousel-button right" onclick="moveCarousel(-1)">&#10095;</button>
+          
         </div>
-        
-        <!-- Inline JavaScript -->
+                <!-- Inline JavaScript -->          <div class="control2" >
+                  <button class="carousel-button left" onclick="moveCarousel(1)">&#10094;</button>
+                  <button class="carousel-button right" onclick="moveCarousel(-1)">&#10095;</button>
+                </div>
+       <div style=" padding-left: 36px;
+    padding-right: 36px;"> <a href="https://www.patreon.com/gavrylin" target="_blank" class="btn">PATREON</a></div>
+
         <script>
           function moveCarousel(direction) {
             const videoCards = document.querySelector('.video-cards');
@@ -149,7 +140,7 @@
                
 
         
-      </div>
+      
     </div>
 
     <div class="section">
@@ -202,25 +193,39 @@
   
 </div>
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.18/fullpage.min.js"></script>
-  <script src="script.js"></script>
+  <script src="components.js"></script>
+
 <script src="distortion.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  let rotationAngle = 0; // Кут повороту
 
+  new fullpage("#fullpage", {
+    licenseKey: "gplv3",
+    autoScrolling: true,
+    scrollHorizontally: true,
+    navigation: true,
+    navigationPosition: "right",
 
-  <script>
-    // Initialize FullPage.js
-    new fullpage('#fullpage', {
-      autoScrolling: true,
-      navigation: true,
-      navigationPosition: 'right',
-      
-    });
+    // Поворот фону при прокрутці
+    onLeave: function (origin, destination, direction) {
+      const backgroundImage = document.querySelector(".background-image");
+      if (backgroundImage) { // Переконуємось, що елемент існує
+        if (direction === "down") {
+          rotationAngle += 90;
+        } else {
+          rotationAngle -= 90;
+        }
+        backgroundImage.style.transform = `rotate(${rotationAngle}deg)`;
+      }
+    },
+  });
 
-    // Initialize AOS
-    AOS.init();
-    
-  </script>
+  console.log("FullPage.js ініціалізований із ефектом повороту!");
+});
+
+</script>
 
 </body>
 </html>

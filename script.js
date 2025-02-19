@@ -69,22 +69,6 @@ adjustScale();
 window.addEventListener('resize', adjustScale);
 window.addEventListener('orientationchange', adjustScale);
 
-// Поворот фона при прокрутке
-let rotationAngle = 0;
-new fullpage("#fullpage", {
-    autoScrolling: true,
-    scrollHorizontally: true,
-    onLeave: function (origin, destination, direction) {
-        const backgroundImage = document.querySelector(".background-image");
 
-        if (direction === "down") {
-            rotationAngle += 90;
-        } else {
-            rotationAngle -= 90;
-        }
-
-        backgroundImage.style.transform = `rotate(${rotationAngle}deg)`;
-    },
-});
 
 

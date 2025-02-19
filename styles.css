@@ -434,10 +434,19 @@ a {
 .about,
 .texts,
 .merch,
-.subscribe,
+.subscribe
+{
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
 .videos {
   padding-left: 36px;
   padding-right: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .merch-content {
@@ -524,18 +533,16 @@ a {
 }
 
 .carousel {
-  width: 100%;
   overflow: hidden;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* Align children in a column */
   align-items: center;
   padding: 20px 0;
 }
 
 .video-cards {
-  width: 100%;
   display: flex;
   transition: transform 0.5s ease;
 }
@@ -574,14 +581,14 @@ a {
 
 .video-card iframe {
   border-radius: 8px;
-  width: 60%;
+  width: 90%;
   height: auto;
   /* Maintain aspect ratio */
   aspect-ratio: 16 / 9;
 }
 
 .carousel-buttons {
-  max-width: 1200px;
+
   width: 100%;
 
   justify-content: center;
@@ -601,6 +608,7 @@ a {
   border-radius: 100%;
   z-index: 10;
   margin: 0 24px;
+  flex-shrink: 0;
   /* Space out the buttons */
 }
 
@@ -609,20 +617,7 @@ a {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.carousel-button.left {
-  order: 1;
-  /* Левая кнопка */
-}
 
-.carousel-button.right {
-  order: 3;
-  /* Правая кнопка */
-}
-
-.carousel-button .btn {
-  order: 2;
-  /* Patreon в центре */
-}
 
 div.fp-watermark {
   display: none;
@@ -795,6 +790,11 @@ div.fp-watermark {
     font-size: 2em;
   }
 
+
+  .videos .carousel-button 
+  
+{display: none;}
+
   p {
     font-size: 1em;
   }
@@ -810,20 +810,7 @@ div.fp-watermark {
     gap: 12px;
   }
 
-  .carousel-button.btn {
-    order: 1;
-    /* Patreon остаётся сверху */
-  }
 
-  .carousel-button.left {
-    order: 2;
-    /* Левая кнопка уходит вниз */
-  }
-
-  .carousel-button.right {
-    order: 3;
-    /* Правая кнопка уходит вниз */
-  }
 
   .control1 {
     display: none;
@@ -880,6 +867,8 @@ div.fp-watermark {
     padding-left: 16px;
     padding-right: 16px;
   }
+
+
 
   .eye-wrapper {
     scale: 1.2;
@@ -1187,4 +1176,52 @@ figcaption {
   font-family: "Literata";
   color: #5f5f5f;
 
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Размытие фона */
+}
+
+.popup-content {
+  background: transparent;
+  text-align: center;
+  position: relative;
+}
+
+.popup-heart {
+  font-size: 100px;
+  color: #ff1f68;
+  animation: pulse 1.5s infinite;
+}
+
+.popup-text {
+  color: white;
+  font-size: 24px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.popup-close {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }

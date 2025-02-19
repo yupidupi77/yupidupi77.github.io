@@ -17,8 +17,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (footer && footerPlaceholder) {
                 footerPlaceholder.innerHTML = footer.innerHTML;
+
+                // Обработчик отправки формы
+                document.body.addEventListener('submit', function(e) {
+                    if (e.target && e.target.id === 'subscribeForm') {
+                        e.preventDefault();
+                        let email = document.querySelector('input[name="email"]').value;
+
+                        
+                        // Показываем попап сразу
+                        showPopup();
+                        formFilled();
+                        document.querySelector('#subscribeForm').reset(); 
+
+                        fetch('https://script.google.com/macros/s/AKfycbzozDwSoC1wveXIBToEe3KpJqtWv6rU81H_kAAq0X9NCOycbs4S89HalUmQX5rmMiVKzA/exec', {
+                            method: 'POST',
+                            body: new URLSearchParams({ email: email }),
+                        })
+                        .then(response => response.text())
+                       
+                        .catch(error => {
+                            alert('Сталася помилка. Спробуйте ще раз.');
+                        });
+                    }
+                });
+
+
             }
         })
         .catch(error => console.error("Ошибка загрузки компонентов:", error));
 });
+
+// Функция показа попапа
+function showPopup() {
+    let popup = document.getElementById('thankYouPopup');
+    popup.style.display = 'flex';
+
+    // Автоматическое закрытие через 3 секунды
+}
+function formFilled() {
+    let formm = document.getElementById('subscribeForm');
+    formm.style.display = 'none';}
+
+// Функция закрытия попапа
 

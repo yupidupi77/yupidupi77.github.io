@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pupil = document.querySelector(".pupil");
 
     const allImages = [
-        "images/globe_with_meridians.png", "images/heart.png", "images/herb.png",
+        "images/globe_with_meridians.png", "images/heart.png", "images/herb.png", "images/son.png",
         "images/pill.png", "images/snowflake.png", "images/sunglasses.png", "images/clinking_glasses.png", "images/alien.png"
     ];
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let newIcon = availableImages.splice(randomIndex, 1)[0]; // Удаляем выбранное изображение из массива
 
         pupil.src = newIcon;
-        pupil.style.width = "48px";
+        pupil.style.width = "48px";http://127.0.0.1:3000/images/eye.svg
         pupil.style.height = "48px";
 
         eyeContainer.classList.add("bounce");

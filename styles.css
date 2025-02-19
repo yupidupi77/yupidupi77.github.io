@@ -1200,6 +1200,22 @@ flex-direction: column;
   font-weight: bold;
 }
 
+.footer-desc {
+  padding-top: 16px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-desc a {
+
+  opacity: 0.5;
+
+}
+
+.footer-desc a:hover {
+color: #e8e74e;
+opacity: 1;
+}
 
 @keyframes pulse {
   0% { transform: scale(1); }

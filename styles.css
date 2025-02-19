@@ -586,6 +586,12 @@ a {
   /* Maintain aspect ratio */
   aspect-ratio: 16 / 9;
 }
+@media (max-width: 768px) {
+  .fp-nav {
+    display: none !important;
+  }
+}
+
 
 .carousel-buttons {
 

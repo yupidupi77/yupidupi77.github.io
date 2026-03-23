@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('components.html')
+    fetch('/components.html')
         .then(response => response.text())
         .then(data => {
             let tempContainer = document.createElement('div');
